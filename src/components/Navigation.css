@@ -1,0 +1,134 @@
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 0;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-brand:hover {
+    transform: scale(1.05);
+  }
+  
+  .brand-icon {
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .brand-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-link.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  .nav-icon {
+    font-size: 1.1rem;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 0 15px;
+    }
+    
+    .brand-text {
+      font-size: 1.2rem;
+    }
+    
+    .nav-links {
+      gap: 5px;
+    }
+    
+    .nav-link {
+      padding: 10px 16px;
+      font-size: 13px;
+    }
+    
+    .nav-link span:not(.nav-icon) {
+      display: none;
+    }
+    
+    .nav-icon {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0 10px;
+    }
+    
+    .brand-icon {
+      font-size: 1.5rem;
+    }
+    
+    .brand-text {
+      font-size: 1rem;
+    }
+    
+    .nav-link {
+      padding: 8px 12px;
+    }
+  }
