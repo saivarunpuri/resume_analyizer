@@ -1,0 +1,14 @@
+# Node and React
+node_modules/
+dist/
+.cache/
+.env
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/

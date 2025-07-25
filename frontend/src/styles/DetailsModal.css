@@ -1,0 +1,587 @@
+.details-modal {
+  width: 95vw;
+  max-width: 1200px;
+  max-height: 95vh;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.close-button {
+  background: rgba(245, 101, 101, 0.2);
+  border: 1px solid rgba(245, 101, 101, 0.3);
+  color: #f56565;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: rgba(245, 101, 101, 0.3);
+  transform: scale(1.1);
+}
+
+.modal-body {
+  padding: 20px 40px;
+  overflow-y: auto;
+  max-height: calc(95vh - 160px);
+}
+
+.modal-footer {
+  padding: 20px 40px 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: right;
+}
+
+/* Loading and Error States */
+.modal-loading,
+.modal-error {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.modal-loading .loading-text {
+  color: white;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.modal-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Details Content */
+.details-content {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resume-info {
+  flex: 1;
+}
+
+.resume-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 10px 0;
+}
+
+.resume-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filename,
+.analyze-date {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rating-display-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-circle-modal {
+  width: 80px;
+  height: 80px;
+  border: 3px solid;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.rating-circle-modal .rating-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+}
+
+.rating-circle-modal .rating-total {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rating-label-modal {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Details Grid */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+}
+
+.detail-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.detail-section:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.detail-section.full-width {
+  grid-column: 1 / -1;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-content {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.no-data {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Personal Details */
+.personal-details-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  gap: 15px;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 80px;
+}
+
+.detail-value {
+  color: white;
+  flex: 1;
+}
+
+.detail-value a {
+  color: #4facfe;
+  text-decoration: none;
+}
+
+.detail-value a:hover {
+  text-decoration: underline;
+}
+
+/* Skills */
+.skills-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.skill-category-modal h5 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.skills-list-modal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.skill-tag.technical {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.4);
+  color: #667eea;
+}
+
+.skill-tag.soft {
+  background: rgba(72, 187, 120, 0.2);
+  border-color: rgba(72, 187, 120, 0.4);
+  color: #48bb78;
+}
+
+/* Experience */
+.experience-list-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.experience-item-modal {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exp-header-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 15px;
+}
+
+.exp-header-modal h5 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.company-modal {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.exp-duration-modal {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.responsibilities-modal {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.responsibilities-modal li {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* Education */
+.education-list-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.education-item-modal {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.education-item-modal h5 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.institution {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.edu-details {
+  display: flex;
+  gap: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+/* Projects */
+.projects-list-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-item-modal {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-item-modal h5 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.project-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+}
+
+.project-tech {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-tech strong {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  padding: 4px 10px;
+  background: rgba(79, 172, 254, 0.2);
+  border: 1px solid rgba(79, 172, 254, 0.4);
+  color: #4facfe;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Certifications */
+.certifications-list-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.certification-item-modal {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.certification-item-modal h5 {
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.cert-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.issuer {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.cert-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+/* AI Feedback */
+.feedback-section-modal {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.feedback-content-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.feedback-subsection h5 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explanation-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feedback-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.feedback-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.feedback-list.strengths-modal li {
+  color: #68d391;
+}
+
+.feedback-list.improvements-modal li {
+  color: #fbb6ce;
+}
+
+.suggested-skills-modal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.suggested-skill-modal {
+  padding: 8px 16px;
+  background: rgba(79, 172, 254, 0.2);
+  border: 1px solid rgba(79, 172, 254, 0.4);
+  color: #4facfe;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .details-modal {
+    width: 98vw;
+    max-height: 98vh;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .details-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .rating-display-modal {
+    align-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .resume-name {
+    font-size: 1.5rem;
+  }
+
+  .resume-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .detail-section {
+    padding: 20px;
+  }
+
+  .exp-header-modal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cert-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
